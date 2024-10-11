@@ -1,0 +1,73 @@
+import React, { useState } from "react";
+import navConstants from "../constants/navStrings";
+import { NavLink, useNavigate } from "react-router-dom";
+import { ReactComponent as MenuBar } from "../assets/icons/menu-bar.svg";
+import { ReactComponent as Close } from "../assets/icons/close.svg";
+
+const navlinks = navConstants.getNavlinks();
+
+const Navbar = () => {
+  const [toggleMenu, setToggleMenu] = useState(false);
+  const navigate = useNavigate();
+
+  const navigateToHome = () => navigate(navConstants.HOME);
+
+  return (
+    <nav className="flex justify-between items-center p-5">
+      <div className="z-50 cursor-pointer">
+        <h4 onClick={navigateToHome}>LOGO</h4>
+      </div>
+      <div className="hidden md:flex justify-between items-center gap-6">
+        {navlinks?.map(({ label, path }) => (
+          <NavLink
+            key={path}
+            to={path}
+            className={({ isActive }) =>
+              `${
+                isActive ? "activeRoute" : undefined
+              } text-base relative after:bg-purple-700 after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer`
+            }
+          >
+            {label}
+          </NavLink>
+        ))}
+      </div>
+      <div className="flex justify-between items-center gap-6 md:hidden">
+        <div className="lg:hidden flex items-center z-50">
+          <button onClick={() => setToggleMenu(!toggleMenu)}>
+            {toggleMenu ? (
+              <Close className="h-6 " />
+            ) : (
+              <MenuBar className="h-6" />
+            )}
+          </button>
+        </div>
+      </div>
+      <div
+        className={`fixed z-40 w-full  bg-red-200 overflow-hidden flex flex-col md:hidden gap-12 top-0 left-0 duration-700 ${
+          !toggleMenu ? "h-0" : "h-full"
+        }`}
+      >
+        <div className="px-8 py-16 pt-24">
+          <div className="flex flex-col items-center gap-8 font-bold tracking-wider">
+            {navlinks?.map(({ label, path }) => (
+              <NavLink
+                key={path}
+                to={path}
+                className={({ isActive }) =>
+                  `${
+                    isActive ? "activeRoute" : undefined
+                  } text-base relative after:bg-purple-700 after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer`
+                }
+              >
+                {label}
+              </NavLink>
+            ))}
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
