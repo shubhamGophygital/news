@@ -10,22 +10,25 @@ const Footer = () => {
   const navigateToHome = () => navigate(navConstants.HOME);
 
   return (
-    <footer className="flex flex-col md:flex-row gap-5 md:gap-20 flex-wrap justify-around  p-5 bg-green-300 ">
-      <div className="flex-[1]">
-        <h1 onClick={navigateToHome} className="cursor-pointer">
-          LOGO
+    <footer className="flex flex-col md:flex-row gap-5 md:gap-20 flex-wrap justify-around  p-5 bg-slate-950 text-white">
+      <div className="flex-1">
+        <h1
+          onClick={navigateToHome}
+          className="cursor-pointer heading-lg highlight mb-2"
+        >
+          ReadMe
         </h1>
-        <p>
+        <p className="para-sm text-white">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
           atque autem recusandae sint quisquam.
         </p>
       </div>
-      <hr className="w-full h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:hidden" />
-      <div className="flex-[1]">
+      <hr className="divider md:hidden" />
+      <div className="flex-1">
         <FooterLinks />
       </div>
-      <hr className="w-full h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:hidden" />
-      <div className="flex-[1]">
+      <hr className="divider md:hidden" />
+      <div className="flex-1">
         <GetInTouch />
       </div>
     </footer>

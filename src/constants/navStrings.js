@@ -1,12 +1,12 @@
 const navConstants = {
   HOME: "/",
-  CONTACT: "/contact",
+  SOURCES: "/sources",
   //   PROJECTS: "/projects",
   //   RESOURCES: "/resources",
   getNavlinks: function () {
     return [
       { label: "Home", path: this.HOME },
-      { label: "Contact", path: this.CONTACT },
+      { label: "Sources", path: this.SOURCES },
       //   { label: "Projects", path: this.PROJECTS },
       //   { label: "Resources", path: this.RESOURCES },
     ];

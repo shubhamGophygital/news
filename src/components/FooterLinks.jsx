@@ -7,13 +7,13 @@ const navlinks = navConstants.getNavlinks();
 const FooterLinks = () => {
   return (
     <div>
-      <h4 className="text-lg mb-2">Links</h4>
-      <div className="flex-1 flex items-center gap-3 flex-wrap bg-green-300">
+      <h4 className="heading-lg text-white mb-2">Links</h4>
+      <div className="flex-1 flex items-center gap-3 flex-wrap bg-slate-950 text-white">
         {navlinks?.map(({ label, path }) => (
           <span className="w-[calc(50%-12px)]" key={path}>
             <NavLink
               to={path}
-              className="text-base relative after:bg-purple-700 after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer"
+              className="para-md text-white relative after:bg-orange-600 after:absolute after:h-[2px] after:w-0 after:bottom-[-3px] after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer"
             >
               {label}
             </NavLink>

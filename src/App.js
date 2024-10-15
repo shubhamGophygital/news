@@ -6,7 +6,7 @@ import navConstants from "./constants/navStrings";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Projects from "./pages/Projects";
-import Resources from "./pages/Resources";
+import Sources from "./pages/Sources";
 
 export default function App() {
   const element = useRoutes([
@@ -23,8 +23,8 @@ export default function App() {
       element: <Projects />,
     },
     {
-      path: navConstants.RESOURCES,
-      element: <Resources />,
+      path: navConstants.SOURCES,
+      element: <Sources />,
     },
   ]);
 

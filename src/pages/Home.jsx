@@ -1,12 +1,23 @@
 import React from "react";
 import { Layout } from "../components/Layout";
-import data from "../data.json";
-console.log("data", data);
+import TopNews from "../components/TopNews";
+import OverlayNewsList from "../components/OverlayNewsList";
+import NewsCategories from "../components/NewsCategories";
+import VerticalNewsList from "../components/VerticalNewsList";
+import SectionHeader from "../components/SectionHeader";
 
 const Home = () => {
   return (
     <Layout>
-      <h1 className="text-primary-200">Home</h1>
+      <TopNews />
+      <hr className="divider" />
+      <OverlayNewsList />
+      <hr className="divider" />
+      <SectionHeader>News Categories</SectionHeader>
+      <NewsCategories />
+      <hr className="divider" />
+      <SectionHeader>Latest News</SectionHeader>
+      <VerticalNewsList />
     </Layout>
   );
 };

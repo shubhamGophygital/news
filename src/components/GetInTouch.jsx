@@ -4,14 +4,14 @@ import SocialBox from "./SocialBox";
 const GetInTouch = () => {
   return (
     <div>
-      <h4 className="text-lg mb-2">Get in touch</h4>
+      <h4 className="heading-lg text-white mb-2">Get in touch</h4>
       <div className="mb-2">
         <SocialBox />
       </div>
-      <p>
+      <p className="para-sm text-white">
         Mobile: <a href="tel:+919004409190">9004409190</a>
       </p>
-      <p>
+      <p className="para-sm text-white">
         Email:
         <a href="mailto:salunkheshubham0@gmail.com">
           salunkheshubham0@gmail.com
