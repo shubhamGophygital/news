@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import navConstants from "../constants/navStrings";
 
-const navlinks = navConstants.getNavlinks();
+const navlinks = navConstants.NAVLINKS;
 
 const FooterLinks = () => {
   return (
@@ -13,7 +13,11 @@ const FooterLinks = () => {
           <span className="w-[calc(50%-12px)]" key={path}>
             <NavLink
               to={path}
-              className="para-md text-white relative after:bg-orange-600 after:absolute after:h-[2px] after:w-0 after:bottom-[-3px] after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer"
+              className={({ isActive }) =>
+                `para-sm ${
+                  isActive ? "active-route highlight" : "text-white"
+                } relative after:bg-orange-600 after:absolute after:h-[2px] after:w-0 after:bottom-[-3px] after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer`
+              }
             >
               {label}
             </NavLink>

@@ -2,11 +2,10 @@ import React from "react";
 import data from "../data/topHeadline.json";
 import HorizontalNewsCard from "./HorizontalNewsCard";
 
-const HorizontalNewsList = () => {
-  let otherNews = data?.articles?.slice(5, 8);
+const HorizontalNewsList = ({ newsList }) => {
   return (
     <>
-      {otherNews?.map((news) => (
+      {newsList?.map((news) => (
         <HorizontalNewsCard key={news?.title} news={news} />
       ))}
     </>

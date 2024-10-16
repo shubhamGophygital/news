@@ -1,36 +1,41 @@
-import "./index.css";
-import * as React from "react";
-import { useLocation, useRoutes } from "react-router-dom";
+import React, { lazy, Suspense } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import navConstants from "./constants/navStrings";
+import Fallback from "./components/Fallback";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-import Home from "./pages/Home";
-import Contact from "./pages/Contact";
-import Projects from "./pages/Projects";
-import Sources from "./pages/Sources";
+const HomePage = lazy(() => import("./pages/HomePage"));
+const NewsCategoriesPage = lazy(() => import("./pages/NewsCategoriesPage"));
+const NewsCategoryPage = lazy(() => import("./pages/NewsCategoryPage"));
+const NewsSourcesPage = lazy(() => import("./pages/NewsSourcesPage"));
+
+const router = createBrowserRouter([
+  {
+    path: navConstants.HOME,
+    element: <HomePage />,
+  },
+  {
+    path: navConstants.CATEGORIES,
+    element: <NewsCategoriesPage />,
+  },
+  {
+    path: navConstants.CATEGORY_NAME,
+    element: <NewsCategoryPage />,
+  },
+  {
+    path: navConstants.SOURCES,
+    element: <NewsSourcesPage />,
+  },
+]);
+
+const queryClient = new QueryClient();
 
 export default function App() {
-  const element = useRoutes([
-    {
-      path: navConstants.HOME,
-      element: <Home />,
-    },
-    {
-      path: navConstants.CONTACT,
-      element: <Contact />,
-    },
-    {
-      path: navConstants.PROJECTS,
-      element: <Projects />,
-    },
-    {
-      path: navConstants.SOURCES,
-      element: <Sources />,
-    },
-  ]);
-
-  const location = useLocation();
-
-  if (!element) return null;
-
-  return <>{React.cloneElement(element, { key: location.pathname })}</>;
+  return (
+    <Suspense fallback={<Fallback />}>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
+    </Suspense>
+  );
 }

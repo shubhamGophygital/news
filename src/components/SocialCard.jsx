@@ -1,7 +1,7 @@
 import React from "react";
 import SocialItem from "./SocialItem";
 
-const SocialBox = () => {
+const SocialCard = () => {
   const socialMeta = [
     {
       icon: "github",
@@ -17,7 +17,7 @@ const SocialBox = () => {
     },
     {
       icon: "linkedin",
-      link: "https://github.com/shubhamsalunkhe16",
+      link: "https://www.linkedin.com/in/shubham-b-salunkhe",
     },
   ];
 
@@ -32,4 +32,4 @@ const SocialBox = () => {
   );
 };
 
-export default SocialBox;
+export default SocialCard;

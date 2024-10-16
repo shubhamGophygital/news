@@ -1,12 +1,12 @@
 import React from "react";
-import SocialBox from "./SocialBox";
+import SocialCard from "./SocialCard";
 
 const GetInTouch = () => {
   return (
     <div>
       <h4 className="heading-lg text-white mb-2">Get in touch</h4>
       <div className="mb-2">
-        <SocialBox />
+        <SocialCard />
       </div>
       <p className="para-sm text-white">
         Mobile: <a href="tel:+919004409190">9004409190</a>

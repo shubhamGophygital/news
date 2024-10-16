@@ -1,8 +1,8 @@
 import React from "react";
-import { Layout } from "../components/Layout";
+import Layout from "../components/Layout";
 import NewsSourcesList from "../components/NewsSourcesList";
 
-const Sources = () => {
+const NewsSourcesPage = () => {
   return (
     <Layout>
       <NewsSourcesList />
@@ -10,4 +10,4 @@ const Sources = () => {
   );
 };
 
-export default Sources;
+export default NewsSourcesPage;

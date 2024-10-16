@@ -3,8 +3,9 @@ import navConstants from "../constants/navStrings";
 import { NavLink, useNavigate } from "react-router-dom";
 import { ReactComponent as MenuBar } from "../assets/icons/menu-bar.svg";
 import { ReactComponent as Close } from "../assets/icons/close.svg";
+import { ReactComponent as ReadMeLogo } from "../assets/icons/readme.svg";
 
-const navlinks = navConstants.getNavlinks();
+const navlinks = navConstants.NAVLINKS;
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -15,9 +16,13 @@ const Navbar = () => {
   return (
     <nav className="flex justify-between items-center p-5 pr-16 bg-slate-950 text-white fixed top-0 w-screen z-50">
       <div className="z-50 cursor-pointer">
-        <h4 className="heading-xl highlight" onClick={navigateToHome}>
+        <h1
+          className="heading-xl highlight flex gap-2 items-center"
+          onClick={navigateToHome}
+        >
+          <ReadMeLogo className="fill-orange-600" />
           ReadMe
-        </h4>
+        </h1>
       </div>
       <div className="hidden md:flex justify-between items-center gap-12">
         {navlinks?.map(({ label, path }) => (

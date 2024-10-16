@@ -44,6 +44,10 @@
     @apply text-xl lg:text-2xl font-bold text-black font-Lato;
   }
 
+  .heading-3xl {
+    @apply text-2xl lg:text-3xl font-bold text-black font-Lato;
+  }
+
   .para-sm {
     @apply text-xs lg:text-sm font-normal text-gray-500;
   }
